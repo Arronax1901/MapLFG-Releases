@@ -2,7 +2,6 @@
 
 A Guild Wars 2 addon that opens the native Looking For Group (LFG) window directly to your current map's category and subcategory.
 
----
 
 # Disclaimer
 > [!CAUTION]
@@ -18,7 +17,6 @@ A Guild Wars 2 addon that opens the native Looking For Group (LFG) window direct
 ## To ArenaNet
 ### Please reach out to us by [creating an issue](../../issues) for concerns, takedown requests or review requests for the codebase.
 
----
 
 ## ✨ Features
 - **Instant Map Navigation:** Press `ALT+L` (or click the Quick-Access icon) to open the GW2 LFG panel straight to the category and subcategory of your current zone.
@@ -29,7 +27,6 @@ A Guild Wars 2 addon that opens the native Looking For Group (LFG) window direct
 - **Quickplay Shortcuts:** One-click navigation to Fractal and Raid LFGs directly from the context menu.
 - **In-Game Mail to Author:** Click *"Mail to Arronax.5471"* in the context menu to send a message or tip in-game.
 
----
 
 ## ⌨️ Controls & Keybinds
 | Action | Default Keybind | Description |
@@ -41,7 +38,6 @@ A Guild Wars 2 addon that opens the native Looking For Group (LFG) window direct
 
 Keybinds can be customized at any time in the Raidcore Nexus overlay (`CTRL + O`).
 
----
 
 ## 📥 Installation
 
@@ -56,8 +52,7 @@ Keybinds can be customized at any time in the Raidcore Nexus overlay (`CTRL + O`
 3. Place `Map_LFG.dll` into your `Guild Wars 2/addons/` folder.
 4. Restart Guild Wars 2 or load the addon via Nexus (`CTRL + O`).
 
----
 
 ## 👤 Author & Support
 - **Author:** Arronax.5471
-- **Community:** Xytels Modding Community
+- **Community:** [Xytels Modding Community](https://discord.gg/BPXw54Dghq)
