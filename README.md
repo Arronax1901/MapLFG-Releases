@@ -21,8 +21,10 @@ A Guild Wars 2 addon that opens the native Looking For Group (LFG) window direct
 ## ✨ Features
 - **Instant Map Navigation:** Press `ALT+L` (or click the Quick-Access icon) to open the GW2 LFG panel straight to the category and subcategory of your current zone.
 - **Direct Engine Integration:** Native, zero-delay UI opening with zero mouse-click interference and full compatibility with ArcDPS and Unofficial Extras.
-- **Custom Shortcut Slots (v2.2):** Up to 5 user-configurable quick-access slots in the settings window with dedicated Nexus keybinds.
-- **Map Overrides (`map_overrides.txt`):** Customize any map to point to a specific LFG category (e.g. Mistlock Sanctuary -> Raids).
+- **In-Game Map Overrides (v2.2.4):** Easily redirect any map (e.g. Mistlock Sanctuary -> Raids) via in-game dropdown menus or `map_overrides.txt`.
+- **Smart World Boss Detection (v2.2.4):** Optionally switches Central Tyria LFG automatically to World Bosses during active event windows (Tequatl, Triple Trouble, Karka Queen).
+- **Toggle-Close Keypress (v2.2.4):** Pressing your hotkey again shortly after opening can optionally close the contacts/LFG window.
+- **Custom Shortcut Slots:** Up to 5 user-configurable quick-access slots in the settings window with dedicated Nexus keybinds.
 - **PvP & Lobby Support:**
   - In PvP match maps (e.g., Skyhammer, Kyhlo), LFG opening is safely disabled to respect game restrictions.
   - In the **Heart of the Mists** lobby, opens directly to *Player vs. Player -> Structured PvP*.
@@ -30,8 +32,8 @@ A Guild Wars 2 addon that opens the native Looking For Group (LFG) window direct
 - **In-Game Mail to Author:** Click *"Mail to Arronax.5471"* in the context menu to send a message or tip in-game.
 
 
-## ⚙️ Map Overrides (`map_overrides.txt`)
-You can redirect any map to open a custom LFG section of your choice by creating or editing `map_overrides.txt` in your `Guild Wars 2/addons/MapLFG/` folder.
+## ⚙️ Map Overrides (In-Game GUI & `map_overrides.txt`)
+You can redirect any map to open a custom LFG section of your choice directly in-game from the Settings menu (`ALT + SHIFT + L`) via the **Map Override for Current Zone** dropdowns, or manually by editing `map_overrides.txt` in your `Guild Wars 2/addons/MapLFG/` folder.
 
 **Format:** `<MapID> <NativeEntryIndex>`
 
