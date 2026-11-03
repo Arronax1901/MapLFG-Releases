@@ -21,9 +21,10 @@ A Guild Wars 2 addon that opens the native Looking For Group (LFG) window direct
 ## ✨ Features
 - **Instant Map Navigation:** Press `ALT+L` (or click the Quick-Access icon) to open the GW2 LFG panel straight to the category and subcategory of your current zone.
 - **Direct Engine Integration:** Native, zero-delay UI opening with zero mouse-click interference and full compatibility with ArcDPS and Unofficial Extras.
-- **In-Game Map Overrides (v2.2.4):** Easily redirect any map (e.g. Mistlock Sanctuary -> Raids) via in-game dropdown menus or `map_overrides.txt`.
-- **Smart World Boss Detection (v2.2.4):** Optionally switches Central Tyria LFG automatically to World Bosses during active event windows (Tequatl, Triple Trouble, Karka Queen).
-- **Toggle-Close Keypress (v2.2.4):** Pressing your hotkey again shortly after opening can optionally close the contacts/LFG window.
+- **In-Game Map Overrides:** Easily redirect any map (e.g. Mistlock Sanctuary -> Raids) via in-game dropdown menus or `map_overrides.txt`.
+- **Smart World Boss Detection (v2.2.5):** Optionally switches Central Tyria LFG automatically to World Bosses during active event windows across all 14 Core Tyria World Bosses and the rotating Ley-Line Anomaly.
+- **Toggle-Close Keypress:** Pressing your hotkey again shortly after opening can optionally close the contacts/LFG window.
+- **Nexus Localization Support (v2.2.5):** Default English UI with automatic German translation when Nexus is set to German.
 - **Custom Shortcut Slots:** Up to 5 user-configurable quick-access slots in the settings window with dedicated Nexus keybinds.
 - **PvP & Lobby Support:**
   - In PvP match maps (e.g., Skyhammer, Kyhlo), LFG opening is safely disabled to respect game restrictions.
