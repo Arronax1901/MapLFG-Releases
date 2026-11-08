@@ -1,0 +1,80 @@
+name: Discord Release Notifier
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Discord Release Announcement
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          RELEASE_NAME: ${{ github.event.release.name }}
+          RELEASE_BODY: ${{ github.event.release.body }}
+          RELEASE_URL: ${{ github.event.release.html_url }}
+        run: |
+          python3 - << 'EOF'
+          import os
+          import json
+          import urllib.request
+
+          webhook_url = os.environ.get("DISCORD_WEBHOOK")
+          if not webhook_url:
+              print("Notice: DISCORD_WEBHOOK secret not found or empty.")
+              exit(0)
+
+          tag = os.environ.get("RELEASE_TAG", "")
+          body = os.environ.get("RELEASE_BODY", "").strip() or "No release notes provided."
+          rel_url = os.environ.get("RELEASE_URL", "")
+
+          if len(body) > 2000:
+              body = body[:1990] + "..."
+
+          payload = {
+              "username": "Map LFG Bot",
+              "avatar_url": "https://raw.githubusercontent.com/Arronax1901/MapLFG-Releases/main/icon.png",
+              "embeds": [
+                  {
+                      "title": f"Map LFG ({tag}) - New Release",
+                      "url": rel_url,
+                      "description": f"A new version **{tag}** is now live on GitHub!",
+                      "color": 16753920,
+                      "fields": [
+                          {
+                              "name": "What's New",
+                              "value": body,
+                              "inline": False
+                          },
+                          {
+                              "name": "How to Install / Update",
+                              "value": "Open Nexus (`CTRL + O`) -> **Addon Library** -> Search **Map LFG** -> Click **Install** / **Update**.",
+                              "inline": False
+                          },
+                          {
+                              "name": "Links",
+                              "value": f"[View on GitHub]({rel_url}) | [Download Map_LFG.dll](https://github.com/Arronax1901/MapLFG-Releases/releases/download/{tag}/Map_LFG.dll)",
+                              "inline": False
+                          }
+                      ],
+                      "thumbnail": {
+                          "url": "https://raw.githubusercontent.com/Arronax1901/MapLFG-Releases/main/icon.png"
+                      },
+                      "footer": {
+                          "text": "Map LFG | Created by arronax.5471"
+                      }
+                  }
+              ]
+          }
+
+          data = json.dumps(payload).encode("utf-8")
+          req = urllib.request.Request(
+              webhook_url,
+              data=data,
+              headers={"Content-Type": "application/json", "User-Agent": "GitHub-Action"}
+          )
+          with urllib.request.urlopen(req) as resp:
+              print("Sent to Discord successfully, HTTP status:", resp.status)
+          EOF
