@@ -30,8 +30,33 @@ jobs:
           body = os.environ.get("RELEASE_BODY", "").strip() or "No release notes provided."
           rel_url = os.environ.get("RELEASE_URL", "")
 
-          if len(body) > 2000:
-              body = body[:1990] + "..."
+          if len(body) <= 1024:
+              description = f"A new version **{tag}** is now live on GitHub!"
+              fields = [
+                  {
+                      "name": "What's New",
+                      "value": body,
+                      "inline": False
+                  }
+              ]
+          else:
+              if len(body) > 3800:
+                  body = body[:3790] + "..."
+              description = f"A new version **{tag}** is now live on GitHub!\n\n**What's New**\n{body}"
+              fields = []
+
+          fields.extend([
+              {
+                  "name": "How to Install / Update",
+                  "value": "Open Nexus (`CTRL + O`) -> **Addon Library** -> Search **Map LFG** -> Click **Install** / **Update**.",
+                  "inline": False
+              },
+              {
+                  "name": "Links",
+                  "value": f"[View on GitHub]({rel_url}) | [Download Map_LFG.dll](https://github.com/Arronax1901/MapLFG-Releases/releases/download/{tag}/Map_LFG.dll)",
+                  "inline": False
+              }
+          ])
 
           payload = {
               "username": "Map LFG Bot",
@@ -40,25 +65,9 @@ jobs:
                   {
                       "title": f"Map LFG ({tag}) - New Release",
                       "url": rel_url,
-                      "description": f"A new version **{tag}** is now live on GitHub!",
+                      "description": description,
                       "color": 16753920,
-                      "fields": [
-                          {
-                              "name": "What's New",
-                              "value": body,
-                              "inline": False
-                          },
-                          {
-                              "name": "How to Install / Update",
-                              "value": "Open Nexus (`CTRL + O`) -> **Addon Library** -> Search **Map LFG** -> Click **Install** / **Update**.",
-                              "inline": False
-                          },
-                          {
-                              "name": "Links",
-                              "value": f"[View on GitHub]({rel_url}) | [Download Map_LFG.dll](https://github.com/Arronax1901/MapLFG-Releases/releases/download/{tag}/Map_LFG.dll)",
-                              "inline": False
-                          }
-                      ],
+                      "fields": fields,
                       "thumbnail": {
                           "url": "https://raw.githubusercontent.com/Arronax1901/MapLFG-Releases/main/icon.png"
                       },
